@@ -9,9 +9,9 @@ spring:
     name: dingtalk_mysql
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
-      url: jdbc:mysql://47.98.171.116:21217/dingtalk?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=true
-      username: iep
-      password: cico@123
+      url: jdbc:mysql://ip:port/dingtalk?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=true
+      username: yourusername
+      password: yourpassword
       driver-class-name: com.mysql.jdbc.Driver
       filters: stat
       initial-size: 30
@@ -38,7 +38,7 @@ logging:
 
 #钉钉获取token地址及应用信息
 dingtalk:
-  AgentId: 265519992
-  appKey: dingokbs3w5ppmzbmx0a
-  AppSecret: -PMWujQDMWFWNSzIvP-pxGRaAbirWnSGDNwSONFv8qouiS3Br13ptJyQ_JIHtmkx
+  AgentId: yourAgentId
+  appKey: yourAppKey
+  AppSecret: yourAppSecret
   dingTalkUrl: https://oapi.dingtalk.com/
