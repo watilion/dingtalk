@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	hello word;2
+	<div id ="code1">
+	</div>
+	<div id ="code">
+	</div>
+	</body>
+	
+	<script src="//g.alicdn.com/dingding/dingtalk-jsapi/2.6.41/dingtalk.open.js"></script>
+	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+	<script>
+		dd.ready(function() {
+	    dd.runtime.permission.requestAuthCode({
+	        corpId: 'dingbc812c5789b3413235c2f4657eb6378f', 
+	        onSuccess: function (info) {
+	        	//alert(JSON.stringify(info));
+              let code = info.code // 通过该免登授权码可以获取用户身份
+              $("#code1").html(code);
+              $.ajax({
+              	url:'sys/mobileByCode/'+ code,
+				        //url: 'user/mobileByCode/'+ code,
+				        type: "get",
+				        dataType: "json",
+				        contentType: 'application/json;charset=UTF-8 ',
+				        success: function(data) {
+				        	$("#code").html(JSON.stringify(data));
+				        }
+							})
+	        }
+      });
+		});
+	</script>
+</html>

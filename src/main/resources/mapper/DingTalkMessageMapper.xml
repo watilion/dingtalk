@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.watilion.dingtalk.dao.DingTalkMessageDao">
+    <insert id="saveDingTalkMessage" parameterType="com.watilion.dingtalk.entity.DingTalkMessage" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO dingTalkMessage ( `content`, `taskId`) VALUES (#{content}, #{taskId});
+    </insert>
+    <insert id="saveDingTalkMessageReceiver">
+        INSERT INTO DingTalkMessageReceiver ( `userId`, `tblUserId`, `messageId`, `status`)
+        VALUES ( #{userId}, #{tblUserId}, #{messageId}, #{status});
+    </insert>
+</mapper>

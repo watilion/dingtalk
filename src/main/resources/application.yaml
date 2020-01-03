@@ -1,0 +1,44 @@
+server:
+  port: 8085
+  servlet:
+    context-path: /dingtalk
+spring:
+  application:
+    name: dingtalk
+  datasource:
+    name: dingtalk_mysql
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      url: jdbc:mysql://47.98.171.116:21217/dingtalk?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=true
+      username: iep
+      password: cico@123
+      driver-class-name: com.mysql.jdbc.Driver
+      filters: stat
+      initial-size: 30
+      min-idle: 10
+      max-active: 100
+      max-wait: 60000
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.watilion.dingtalk.entity
+
+logging:
+  pattern:
+    console: "%d{yyyy/MM/dd-HH:mm:ss} [%thread] %-5level %logger- %msg%n"
+    file: "%d{yyyy/MM/dd-HH:mm} [%thread] %-5level %logger- %msg%n"
+  level:
+    com.watilion.dingtalk.controller: INFO
+    com.watilion.dingtalk.dao: INFO
+    io.swagger.models.parameters.AbstractSerializableParameter: error
+  file:
+    name: logs/watilion-dingtalk.log
+
+#钉钉获取token地址及应用信息
+dingtalk:
+  AgentId: 265519992
+  appKey: dingokbs3w5ppmzbmx0a
+  AppSecret: -PMWujQDMWFWNSzIvP-pxGRaAbirWnSGDNwSONFv8qouiS3Br13ptJyQ_JIHtmkx
+  dingTalkUrl: https://oapi.dingtalk.com/
